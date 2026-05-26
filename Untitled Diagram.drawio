@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="NJTyndDkzVUVmAKvvLaO" name="Page-1">
+    <mxGraphModel dx="1022" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;" value="Enterprise Project Intelligence Chat System - Deployment Diagram" vertex="1">
+          <mxGeometry height="40" width="700" x="420" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" value="Client Devices&#xa;&#xa;• Web Browser&#xa;• Mobile Device" vertex="1">
+          <mxGeometry height="120" width="180" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="internet" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=14;" value="Internet" vertex="1">
+          <mxGeometry height="60" width="100" x="290" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aws" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=18;fontStyle=1;verticalAlign=top;spacingTop=10;" value="AWS Cloud (VPC)" vertex="1">
+          <mxGeometry height="700" width="1200" x="450" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="nginx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" value="Nginx Reverse Proxy&#xa;Port: 80 / 443" vertex="1">
+          <mxGeometry height="120" width="220" x="520" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" value="EC2 Application Server&#xa;&#xa;Docker Containers&#xa;- FastAPI Backend&#xa;- RAG Chat Service&#xa;- Background Workers&#xa;&#xa;Port: 8000" vertex="1">
+          <mxGeometry height="240" width="340" x="860" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" value="PostgreSQL Database&#xa;Port: 5432" vertex="1">
+          <mxGeometry height="100" width="220" x="1320" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="chromadb" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" value="ChromaDB&#xa;(Vector Database)&#xa;Port: 8000" vertex="1">
+          <mxGeometry height="100" width="220" x="1320" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" value="File Storage&#xa;S3 / EBS / Local Storage" vertex="1">
+          <mxGeometry height="100" width="260" x="900" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="llm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" value="LLM APIs&#xa;OpenAI / Gemini" vertex="1">
+          <mxGeometry height="90" width="220" x="1320" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="email" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" value="Email Service&#xa;SES / SendGrid" vertex="1">
+          <mxGeometry height="90" width="220" x="1320" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="cicd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" value="CI/CD Pipeline&#xa;&#xa;GitHub Repository&#xa;↓&#xa;GitHub Actions&#xa;↓&#xa;Docker Build &amp; Push&#xa;↓&#xa;Deploy to EC2" vertex="1">
+          <mxGeometry height="220" width="320" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="client" style="endArrow=block;html=1;strokeWidth=2;" target="internet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="internet" style="endArrow=block;html=1;strokeWidth=2;" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="nginx" style="endArrow=block;html=1;strokeWidth=2;" target="ec2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="ec2" style="endArrow=block;html=1;strokeWidth=2;" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="ec2" style="endArrow=block;html=1;strokeWidth=2;" target="chromadb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="ec2" style="endArrow=block;html=1;strokeWidth=2;" target="storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="ec2" style="endArrow=block;html=1;strokeWidth=2;dashed=1;" target="llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="ec2" style="endArrow=block;html=1;strokeWidth=2;dashed=1;" target="email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="cicd" style="endArrow=block;html=1;strokeWidth=2;dashed=1;" target="ec2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
