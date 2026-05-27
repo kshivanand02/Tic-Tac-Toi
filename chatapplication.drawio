@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="5D_GAJJhyiaTX9G3XidJ" name="Page-1">
+    <mxGraphModel dx="1022" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client_web" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Web Client" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="client_mobile" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Mobile Client" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="lb" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Load Balancer" vertex="1">
+          <mxGeometry height="100" width="100" x="200" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="API Gateway" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ws_service" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="WebSocket Service&#xa;(Real-time)" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="auth_service" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Auth Service" vertex="1">
+          <mxGeometry height="40" width="120" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="msg_service" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Message Service" vertex="1">
+          <mxGeometry height="40" width="120" x="560" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="presence_service" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Presence Service" vertex="1">
+          <mxGeometry height="40" width="120" x="560" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="notif_service" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Notification Service" vertex="1">
+          <mxGeometry height="40" width="120" x="560" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="user_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="User DB&#xa;(SQL)" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="msg_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Chat DB&#xa;(NoSQL/Cassandra)" vertex="1">
+          <mxGeometry height="70" width="80" x="750" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" value="Redis&#xa;(Cache/Presence)" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="mq" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Message Queue&#xa;(Kafka/RabbitMQ)" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" source="client_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="lb" value="HTTPS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="client_mobile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="lb" value="WSS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="lb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gateway" value="REST">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="230" />
+              <mxPoint x="320" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c4" edge="1" parent="1" source="lb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ws_service" value="TCP/WS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="230" />
+              <mxPoint x="320" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" source="gateway" target="auth_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" edge="1" parent="1" source="auth_service" target="user_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" edge="1" parent="1" source="ws_service" target="msg_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" edge="1" parent="1" source="ws_service" target="presence_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" edge="1" parent="1" source="msg_service" target="msg_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" edge="1" parent="1" source="presence_service" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" edge="1" parent="1" source="msg_service" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="mq" value="Async Events">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="200" />
+              <mxPoint x="710" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c12" edge="1" parent="1" source="mq" target="notif_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" edge="1" parent="1" source="notif_service" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="client_mobile" value="Push">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="520" />
+              <mxPoint x="90" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
