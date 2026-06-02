@@ -102,9 +102,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="l0QW84J9UNF172B2Vetj-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Deployment diagram" vertex="1">
-          <mxGeometry height="30" width="140" x="310" y="10" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
